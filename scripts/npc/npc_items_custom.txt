@@ -1,0 +1,335 @@
+"DOTAAbilities"
+{
+    "item_tango"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"Model"							"models/props_gameplay/tango.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_tango.vpcf"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemShopTags"					"consumable;laning"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemStockMax"					"3"
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"60"
+		"IsTempestDoubleClonable"		"0"
+		"SuggestPregame"				"1"
+		"SpeciallyBannedFromNeutralSlot"		"1"
+
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"health_regen"			"15"
+				"buff_duration"			"6.0"
+				"tooltip_charges"				"1"
+		}
+	}
+
+	"item_flask"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"Model"							"models/props_gameplay/salve.vmdl"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.0"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"200"
+		"ItemShopTags"					"consumable;laning"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemStockMax"					"2"
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"60"
+		"IsTempestDoubleClonable"		"0"
+		"SuggestPregame"				"1"
+		"SpeciallyBannedFromNeutralSlot"		"1"
+
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"buff_duration"			"5"
+				"health_regen"			"300"
+				"break_on_hero_damage"	"1"
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Lotus Orb
+	//=================================================================================================================
+	"item_recipe_lotus_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"250"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_lotus_orb"
+		"ItemRequirements"
+		{
+			"01"						"item_pers;item_platemail;item_energy_booster"
+		}
+	}
+
+	"item_lotus_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"FightRecapLevel"				"1"
+		
+		"AbilityCooldown"				"20.0"
+		"AbilityCastRange"				"900"
+		"AbilityManaCost"				"175"
+
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3850"
+		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag;teamfight;save"
+		"ItemQuality"					"epic"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		// "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"SuggestLategame"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_armor"		"10"
+				"bonus_health_regen"	"6.5"
+				"bonus_mana_regen"		"4.0"
+				"bonus_mana"			"250"
+				"active_duration"		"2.5"
+		}
+	}
+    
+	//=================================================================================================================
+	// Recipe: Zaglotus Orb
+	//=================================================================================================================
+	"item_recipe_zaglotus_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"            "item_recipe"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1000"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_zaglotus_orb"
+		"ItemRequirements"
+		{
+			"01"						"item_lotus_orb;item_lotus_orb"
+		}
+	}
+
+	"item_zaglotus_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "item_lotus_orb"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"            "zaglotus"
+		
+		"AbilityCooldown"				"15.0"
+		"AbilityCastRange"				"900"
+		"AbilityManaCost"				"350"
+
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3850"
+		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag;teamfight;save"
+		"ItemQuality"					"epic"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		// "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"SuggestLategame"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_armor"		"20"
+				"bonus_health_regen"	"13"
+				"bonus_mana_regen"		"8.0"
+				"bonus_mana"			"500"
+				"active_duration"		"5"
+		}
+	}
+
+	//=================================================================================================================
+	// Chasm Stone
+	//=================================================================================================================
+	"item_chasm_stone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"800"
+		"ItemShopTags"					"aoe"
+		"ItemQuality"					"component"
+		
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_health"		"0"
+			"aoe_bonus"			"50"
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Super Chasm Stone
+	//=================================================================================================================
+	"item_recipe_super_chasm_stone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"            "item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"400"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_super_chasm_stone"
+		"ItemRequirements"
+		{
+			"01"						"item_chasm_stone;item_chasm_stone"
+		}
+	}
+
+	//=================================================================================================================
+	// Super Chasm Stone
+	//=================================================================================================================
+	"item_super_chasm_stone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                     "item_chasm_stone"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"800"
+		"ItemShopTags"					"aoe"
+		"ItemQuality"					"component"
+		
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_health"		"0"
+			"aoe_bonus"			"100"
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Mega Chasm Stone
+	//=================================================================================================================
+	"item_recipe_mega_chasm_stone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"            "item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"800"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_mega_chasm_stone"
+		"ItemRequirements"
+		{
+			"01"						"item_super_chasm_stone;item_super_chasm_stone"
+		}
+	}
+
+    //=================================================================================================================
+	// Mega Chasm Stone
+	//=================================================================================================================
+	"item_mega_chasm_stone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                     "item_chasm_stone"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1000"
+		"ItemShopTags"					"aoe"
+		"ItemQuality"					"component"
+		
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_health"		"0"
+			"aoe_bonus"			"200"
+		}
+	}
+}
