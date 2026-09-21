@@ -25053,7 +25053,6 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
         "HasShardUpgrade"				"0"
-		"MaxLevel" 						"4" 
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
